@@ -1,4 +1,4 @@
-var Moment = require("../../utils/moment.js");
+var Moment = require("../../../utils/moment.js");
 var DATE_LIST = [];
 var DATE_YEAR = new Date().getFullYear();
 var DATE_MONTH = new Date().getMonth() + 1;
@@ -11,110 +11,110 @@ Page({
         dateList: [],
         systemInfo: {},
         weekStr: ['日', '一', '二', '三', '四', '五', '六'],
-        checkInDate: Moment(new Date()).format('YYYY-MM-DD'),
-        checkOutDate: Moment(new Date()).add(1, 'day').format('YYYY-MM-DD'),
-        // checkInDate: checkInDate,
-        // checkOutDate: checkOutDate,
+        // checkInDate: Moment(new Date()).format('YYYY-MM-DD'),
+        // checkOutDate: Moment(new Date()).add(1, 'day').format('YYYY-MM-DD'),
+        checkInDate: checkInDate,
+        checkOutDate: checkOutDate,
         markcheckInDate: false, //标记开始时间是否已经选择
         markcheckOutDate: false, //标记结束时间是否已经选择
         sFtv: [{
-                month: 1,
-                day: 1,
-                name: "元旦"
-            },
-            {
-                month: 2,
-                day: 14,
-                name: "情人节"
-            },
-            {
-                month: 3,
-                day: 8,
-                name: "妇女节"
-            },
-            {
-                month: 3,
-                day: 12,
-                name: "植树节"
-            },
-            {
-                month: 3,
-                day: 15,
-                name: "消费者权益日"
-            },
-            {
-                month: 4,
-                day: 1,
-                name: "愚人节"
-            },
-            {
-                month: 5,
-                day: 1,
-                name: "劳动节"
-            },
-            {
-                month: 5,
-                day: 4,
-                name: "青年节"
-            },
-            {
-                month: 5,
-                day: 12,
-                name: "护士节"
-            },
-            {
-                month: 6,
-                day: 1,
-                name: "儿童节"
-            },
-            {
-                month: 7,
-                day: 1,
-                name: "建党节"
-            },
-            {
-                month: 8,
-                day: 1,
-                name: "建军节"
-            },
-            {
-                month: 9,
-                day: 10,
-                name: "教师节"
-            },
-            {
-                month: 9,
-                day: 28,
-                name: "孔子诞辰"
-            },
-            {
-                month: 10,
-                day: 1,
-                name: "国庆节"
-            },
-            {
-                month: 10,
-                day: 6,
-                name: "老人节"
-            },
-            {
-                month: 10,
-                day: 24,
-                name: "联合国日"
-            },
-            {
-                month: 12,
-                day: 24,
-                name: "平安夜"
-            },
-            {
-                month: 12,
-                day: 25,
-                name: "圣诞节"
-            }
+            month: 1,
+            day: 1,
+            name: "元旦"
+        },
+        {
+            month: 2,
+            day: 14,
+            name: "情人节"
+        },
+        {
+            month: 3,
+            day: 8,
+            name: "妇女节"
+        },
+        {
+            month: 3,
+            day: 12,
+            name: "植树节"
+        },
+        {
+            month: 3,
+            day: 15,
+            name: "消费者权益日"
+        },
+        {
+            month: 4,
+            day: 1,
+            name: "愚人节"
+        },
+        {
+            month: 5,
+            day: 1,
+            name: "劳动节"
+        },
+        {
+            month: 5,
+            day: 4,
+            name: "青年节"
+        },
+        {
+            month: 5,
+            day: 12,
+            name: "护士节"
+        },
+        {
+            month: 6,
+            day: 1,
+            name: "儿童节"
+        },
+        {
+            month: 7,
+            day: 1,
+            name: "建党节"
+        },
+        {
+            month: 8,
+            day: 1,
+            name: "建军节"
+        },
+        {
+            month: 9,
+            day: 10,
+            name: "教师节"
+        },
+        {
+            month: 9,
+            day: 28,
+            name: "孔子诞辰"
+        },
+        {
+            month: 10,
+            day: 1,
+            name: "国庆节"
+        },
+        {
+            month: 10,
+            day: 6,
+            name: "老人节"
+        },
+        {
+            month: 10,
+            day: 24,
+            name: "联合国日"
+        },
+        {
+            month: 12,
+            day: 24,
+            name: "平安夜"
+        },
+        {
+            month: 12,
+            day: 25,
+            name: "圣诞节"
+        }
         ]
     },
-    onLoad: function(options) {
+    onLoad: function (options) {
         // 页面初始化 options为页面跳转所带来的参数
         this.createDateListData();
         var _this = this;
@@ -125,7 +125,7 @@ Page({
         var checkInDate = options.checkInDate ? options.checkInDate : '';
         var checkOutDate = options.checkOutDate ? options.checkOutDate : '';
         wx.getSystemInfo({
-            success: function(res) {
+            success: function (res) {
                 _this.setData({
                     systemInfo: res,
                     checkInDate: checkInDate,
@@ -134,21 +134,21 @@ Page({
             }
         })
     },
-    onReady: function() {
+    onReady: function () {
         // 页面渲染完成
     },
-    onShow: function() {
+    onShow: function () {
         this.selectDataMarkLine()
     },
-    onHide: function() {
+    onHide: function () {
         // 页面隐藏
     },
-    onUnload: function() {
+    onUnload: function () {
         // 页面关闭
     },
 
     //选择的入住与离店时间段
-    selectDataMarkLine: function() {
+    selectDataMarkLine: function () {
         let dateList = this.data.dateList;
         let {
             checkInDate,
@@ -164,7 +164,7 @@ Page({
         let monthIn = checkInDate.substr(5, 2) >= 10 ? checkInDate.substr(5, 2) : checkInDate.substr(6, 1); //选择入店的月id
         let monthOut = checkOutDate.substr(5, 2) >= 10 ? checkOutDate.substr(5, 2) : checkOutDate.substr(6, 1); //选择离店的月id
         let yearIn = checkInDate.substr(0, 4);
-        let yearOut = checkOutDate.substr(0,4);
+        let yearOut = checkOutDate.substr(0, 4);
         if (curreInid == curreOutid) { //入住与离店是当月的情况
             for (let i = 0; i < dateList.length; i++) {
                 if (dateList[i].id == curreInid) {
@@ -223,7 +223,7 @@ Page({
         })
     },
 
-    createDateListData: function() {
+    createDateListData: function () {
         var dateList = [];
         var now = new Date();
         /*
@@ -233,7 +233,7 @@ Page({
         */
         now = new Date(now.getFullYear(), now.getMonth(), 1);
         for (var i = 0; i < this.data.maxMonth; i++) {
-            var momentDate = Moment(now).add(this.data.maxMonth - (this.data.maxMonth - i), 'month').date;
+            var momentDate = Moment(now).add(this.data.maxMonth - (this.data.maxMonth + i), 'month').date;
             var year = momentDate.getFullYear();
             var month = momentDate.getMonth() + 1;
 
@@ -244,20 +244,20 @@ Page({
             //则当月的1号是从列的第三个位置开始渲染的，前面会占用-2，-1，0的位置,从1开正常渲染
             for (var j = -week + 1; j <= totalDay; j++) {
                 var tempWeek = -1;
-                if (j > 0){
+                if (j > 0) {
                     tempWeek = this.getWeek(year, month, j);
                 }
                 var clazz = '';
-                if (tempWeek == 0 || tempWeek == 6){
+                if (tempWeek == 0 || tempWeek == 6) {
                     clazz = 'week'
                 }
-                if (j < DATE_DAY && year == DATE_YEAR && month == DATE_MONTH){
-                    //当天之前的日期不可用
-                    clazz = 'unavailable ' + clazz;
-                // if (j >= DATE_DAY && year == DATE_YEAR && month == DATE_MONTH) {
-                //     //当天之后的日期不可用
+                // if (j < DATE_DAY && year == DATE_YEAR && month == DATE_MONTH){
+                //     //当天之前的日期不可用
                 //     clazz = 'unavailable ' + clazz;
-                }else{
+                if (j >= DATE_DAY && year == DATE_YEAR && month == DATE_MONTH) {
+                    //当天之后的日期不可用
+                    clazz = 'unavailable ' + clazz;
+                } else {
                     clazz = '' + clazz
                 }
                 days.push({
@@ -272,7 +272,7 @@ Page({
                 days: days
             }
 
-            dateList.push(dateItem);
+            dateList.unshift(dateItem);
         }
         var sFtv = this.data.sFtv;
         for (let i = 0; i < dateList.length; i++) { //加入公历节日
@@ -296,7 +296,7 @@ Page({
     /*
      * 获取月的总天数
      */
-    getTotalDayByMonth: function(year, month) {
+    getTotalDayByMonth: function (year, month) {
         month = parseInt(month, 10);
         var d = new Date(year, month, 0);
         return d.getDate();
@@ -304,28 +304,28 @@ Page({
     /*
      * 获取月的第一天是星期几
      */
-    getWeek: function(year, month, day) {
+    getWeek: function (year, month, day) {
         var d = new Date(year, month - 1, day);
         return d.getDay();
     },
     /**
      * 点击日期事件
      */
-    onPressDate: function(e) {
+    onPressDate: function (e) {
         var {
             year,
             month,
             day
         } = e.currentTarget.dataset;
         //当前选择的日期为同一个月并小于今天，或者点击了空白处（即day<0），不执行
-        if ((day < DATE_DAY && month == DATE_MONTH) || day <= 0) {
-            return;
-        }
-
-        //当前选择的日期为同一个月并大于今天，或者点击了空白处（即day<0），不执行
-        // if ((day >= DATE_DAY && month == DATE_MONTH) || day <= 0) {
+        // if ((day < DATE_DAY && month == DATE_MONTH) || day <= 0) {
         //     return;
         // }
+
+        //当前选择的日期为同一个月并大于今天，或者点击了空白处（即day<0），不执行
+        if ((day >= DATE_DAY && month == DATE_MONTH) || day <= 0) {
+            return;
+        }
 
         var tempMonth = month;
         var tempDay = day;
@@ -336,16 +336,16 @@ Page({
         var date = year + '-' + tempMonth + '-' + tempDay;
 
         //如果点击选择的日期A小于入住时间，则重新渲染入住时间为A
-        if ((this.data.markcheckInDate && Moment(date).before(this.data.checkInDate) || this.data.checkInDate === date) || (this.data.markcheckInDate && this.data.markcheckOutDate)) {
+        // if ((this.data.markcheckInDate && Moment(date).before(this.data.checkInDate) || this.data.checkInDate === date) || (this.data.markcheckInDate && this.data.markcheckOutDate)) {
         console.log(this.data.checkInDate);
         console.log(this.data.markcheckInDate && Moment(date).before(this.data.checkInDate))
-        // if ((this.data.markcheckInDate && Moment(date).before(this.data.checkInDate)) || (this.data.markcheckInDate && this.data.markcheckOutDate)) {
+        if ((this.data.markcheckInDate && Moment(date).before(this.data.checkInDate)) || (this.data.markcheckInDate && this.data.markcheckOutDate)) {
             this.setData({
                 markcheckInDate: false,
                 markcheckOutDate: false,
                 dateList: DATE_LIST.concat(),
-                checkInDate:'',
-                checkOutDate:''
+                checkInDate: '',
+                checkOutDate: ''
             });
         };
 
@@ -356,7 +356,7 @@ Page({
                 markcheckInDate: true,
                 dateList: DATE_LIST.concat()
             });
-        //已经选择开始时间
+            //已经选择开始时间
         } else if (!this.data.markcheckOutDate) {
             this.setData({
                 checkOutDate: date,
@@ -368,10 +368,10 @@ Page({
             //   });
         }
 
-        wx.setStorageSync('ROOM_SOURCE_DATE',{checkInDate: this.data.checkInDate,checkOutDate: this.data.checkOutDate});
+        wx.setStorageSync('ROOM_SOURCE_DATE', { checkInDate: this.data.checkInDate, checkOutDate: this.data.checkOutDate });
         this.renderPressStyle(year, month, day);
     },
-    renderPressStyle: function(year, month, day) {
+    renderPressStyle: function (year, month, day) {
         this.createDateListData(); //重新点击时数据初始化
         var dateList = this.data.dateList;
         //渲染点击样式
@@ -383,8 +383,8 @@ Page({
                 for (var j = 0; j < days.length; j++) {
                     var tempDay = days[j].day;
                     if (tempDay == day) {
-                        if(days[j].class.indexOf('active') != -1){
-                            days[j].class = days[j].class.replace(' active','');
+                        if (days[j].class.indexOf('active') != -1) {
+                            days[j].class = days[j].class.replace(' active', '');
                             days[j].inday = false;
                             break;
                         }
@@ -402,17 +402,19 @@ Page({
         this.selectDataMarkLine();
     },
     /**
-     * 用户触底事件
+     * 用户下拉事件
      */
-    onReachBottom(res){
+    onPullDownRefresh(res) {
         this.setData({
             maxMonth: ++this.data.maxMonth
         })
         this.createDateListData();
-        this.selectDataMarkLine();
+        wx.stopPullDownRefresh();
     },
-    //返回上一层
+    //返回上一个页面
     go(){
-        wx.navigateBack({})
+        wx.navigateBack({
+            
+        })
     }
 })

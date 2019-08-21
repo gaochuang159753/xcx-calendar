@@ -3,5 +3,12 @@
   <text class='outdate'>离开时间：{{checkOutDate}}</text>
 </view>
 <navigator url='/pages/calendar/index'>
-  <button>时间选择</button>
+  <button>时间选择(正常)</button>
+</navigator>
+
+<view class='box'>
+  <text class='indate'>统计起止时间：{{checkInDate}} 到 {{checkOutDate}}</text>
+</view>
+<navigator url='/pages/calendar/inverted/inverted'>
+  <button>时间选择(倒序)</button>
 </navigator>
