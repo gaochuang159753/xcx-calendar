@@ -42,3 +42,12 @@
 .bgwhite{
   background-color: #fff;
 }
+.calendar{
+    padding-bottom: 100rpx;
+}
+.select_btn{
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+}

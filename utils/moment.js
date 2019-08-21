@@ -91,7 +91,7 @@ Moment.prototype.before = function (date) {
   return this.date.getTime() < new Date(date).getTime()
 }
 Moment.prototype.after = function (date) {
-  return this.date.getTime() > date.getTime()
+    return this.date.getTime() > new Date(date).getTime()
 }
 
 module.exports = function (date) {
