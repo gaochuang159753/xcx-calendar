@@ -2,7 +2,8 @@
     "pages": [
         "pages/index/index",
         "pages/calendar/index",
-        "pages/calendar/inverted/inverted"
+        "pages/calendar/inverted/inverted",
+        "pages/calendar/all/all"
     ],
     "window": {
         "backgroundTextStyle": "light",

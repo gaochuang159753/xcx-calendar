@@ -12,3 +12,7 @@
 <navigator url='/pages/calendar/inverted/inverted'>
   <button>时间选择(倒序)</button>
 </navigator>
+
+<navigator url='/pages/calendar/all/all?startDate={{checkInDate}}&endDate={{checkOutDate}}&'>
+  <button>时间选择(倒序)</button>
+</navigator>
